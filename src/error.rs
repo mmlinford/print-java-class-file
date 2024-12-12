@@ -1,5 +1,8 @@
-use crate::primitives::{U1, U2, U4};
 use std::num::TryFromIntError;
+use crate::constant_pool::TryConstantKindFromU1Error;
+use crate::java_version::TryJavaVersionFromU2Error;
+use crate::modified_utf8::TryModifiedUtf8StringFromByteVecError;
+use crate::primitives::{U1, U2, U4};
 
 #[derive(Debug, thiserror::Error)]
 pub enum Error {
@@ -36,4 +39,13 @@ pub enum Error {
         attribute_length: U4,
         source: TryFromIntError,
     },
+
+    #[error(transparent)]
+    TryJavaVersionFromU2(#[from] TryJavaVersionFromU2Error),
+
+    #[error(transparent)]
+    TryConstantKindFromU1(#[from] TryConstantKindFromU1Error),
+
+    #[error(transparent)]
+    InvalidUtf8Constant(#[from] TryModifiedUtf8StringFromByteVecError),
 }

@@ -5,7 +5,7 @@ edition = "2021"
 
 [dependencies]
 byteorder = "1.5.0"
-clap = { version = "4.5.21", features = ["derive"] }
-thiserror = "2.0.3"
+clap = { version = "4.5.23", features = ["derive"] }
+thiserror = "2.0.4"
 
 mml-cli-main = { path = "../mml-cli-main" }

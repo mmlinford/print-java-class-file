@@ -1,7 +1,8 @@
+use std::io::Read;
+
 use crate::attributes::{print_attributes, AttributeInfo};
 use crate::error::Error;
 use crate::primitives::{print_u2, U2};
-use std::io::Read;
 
 pub struct MethodInfo {
     access_flags: U2,
